@@ -17,6 +17,8 @@ const getOpenAPIResponse = async (message) => {
   };
 
   const response = await fetch('https://api.openai.com/v1/chat/completions', options);
+  console.log("OPENAI KEY:", process.env.OPENAI_API_KEY ? "Loaded ✅" : "Missing ❌");
+
 
   if (!response.ok) {
     const text = await response.text();
