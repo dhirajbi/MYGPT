@@ -22,9 +22,8 @@ router.post("/test", async (req, res) => {
   }
 });
 
-// ------------------------
+
 // GET: All threads (latest first)
-// ------------------------
 router.get("/thread", async (req, res) => {
   try {
     const threads = await Thread.find({}).sort({ updatedAt: -1 });
@@ -35,9 +34,9 @@ router.get("/thread", async (req, res) => {
   }
 });
 
-// ------------------------
+
 // GET: One thread by threadId
-// ------------------------
+
 router.get("/thread/:threadId", async (req, res) => {
   const { threadId } = req.params;
   try {
@@ -47,16 +46,16 @@ router.get("/thread/:threadId", async (req, res) => {
       return res.status(404).json({ error: "Thread not found!" });
     }
 
-    return res.json(thread.message); // ✅ send thread's messages
+    return res.json(thread.message); 
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: "Failed to fetch chat!" });
   }
 });
 
-// ------------------------
+
 // POST: Send a message to thread
-// ------------------------
+
 router.post("/chat", async (req, res) => {
   const { threadId, message } = req.body;
 
@@ -90,9 +89,9 @@ router.post("/chat", async (req, res) => {
   }
 });
 
-// ------------------------
+
 // DELETE: Delete thread by threadId
-// ------------------------
+
 router.delete("/thread/:threadId", async (req, res) => {
   const { threadId } = req.params;
 

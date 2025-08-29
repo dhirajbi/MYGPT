@@ -11,7 +11,7 @@ function App() {
   const [prevChats, setPrevChats] = useState([]);
   const [newChat, setNewChat] = useState(true);
   const [allThreads, setAllThreads] = useState([]);
-   //defult set true
+  
 
 
 

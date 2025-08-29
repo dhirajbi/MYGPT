@@ -36,14 +36,14 @@ function Sidebar() {
         getAllThreads();
     }, [currThreadId]);
 
-    const changeThread = async (newThreadId) => {
+        const changeThread = async (newThreadId) => {
         console.log("Set current thread ID to:", newThreadId);
         setCurrThreadId(newThreadId);
 
         try {
-            fetch(`https://backend-egh2.onrender.com/api/thread/${newThreadId}`)
+            const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`);
             const res = await response.json();
-            
+
             console.log("Response from backend:", res);
             setPrevChats(res);
             setNewChat(false);
@@ -52,6 +52,7 @@ function Sidebar() {
             console.error("changeThread error:", err);
         }
     };
+
 
     const createNewChat = () => {
         setNewChat(true);
@@ -63,7 +64,7 @@ function Sidebar() {
 
     const deleteThread = async (threadId) => {
         try {
-            fetch(`https://backend-egh2.onrender.com/api/thread/${newThreadId}`, {
+            fetch(`http://localhost:8080/api/thread/${newThreadId}`, {
                 method: "DELETE",
             });
             const res = await response.json();
