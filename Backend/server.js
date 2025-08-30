@@ -22,7 +22,11 @@ const connectDB = async () => {
     }
 };
 
-
+// ...existing code...
+app.get("/", (req, res) => {
+  res.send("Backend is running!");
+});
+// ...existing code...
 
 app.listen(PORT, () => {
     console.log(`server is running on: ${PORT}`);
