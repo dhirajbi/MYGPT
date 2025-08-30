@@ -20,7 +20,6 @@ function Sidebar() {
             const response = await fetch("https://backend-egh2.onrender.com/api/thread");
             const res = await response.json();
 
-            // ✅ Fix: Correctly map thread UUID field
             const filteredData = res.map(thread => ({
                 threadId: thread.thread, // Use the `thread` field from DB
                 title: thread.title,
@@ -64,7 +63,7 @@ function Sidebar() {
 
     const deleteThread = async (threadId) => {
         try {
-            fetch(`https://backend-egh2.onrender.com/api/thread/${newThreadId}`, {
+            fetch(`https://backend-egh2.onrender.com/api/thread/${threadId}`, {
                 method: "DELETE",
             });
             const res = await response.json();
