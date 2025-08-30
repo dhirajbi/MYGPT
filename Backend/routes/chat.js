@@ -8,9 +8,6 @@ const router = express.Router();
 // ------------------------
 // POST: Create a test thread
 // ------------------------
-app.get('/', (req, res) => {
-  res.send('MYGPT Backend is running!');
-});
 router.post("/test", async (req, res) => {
   try {
     const thread = new Thread({
