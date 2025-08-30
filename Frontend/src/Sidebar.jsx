@@ -17,7 +17,7 @@ function Sidebar() {
 
     const getAllThreads = async () => {
         try {
-            const response = await fetch("http://localhost:8080/api/thread");
+            const response = await fetch("https://backend-egh2.onrender.com/api/thread");
             const res = await response.json();
 
             // ✅ Fix: Correctly map thread UUID field
@@ -41,7 +41,7 @@ function Sidebar() {
         setCurrThreadId(newThreadId);
 
         try {
-            const response = await fetch(`http://localhost:8080/api/thread/${newThreadId}`);
+            const response = await fetch(`https://backend-egh2.onrender.com/api/thread/${newThreadId}`);
             const res = await response.json();
 
             console.log("Response from backend:", res);
@@ -64,7 +64,7 @@ function Sidebar() {
 
     const deleteThread = async (threadId) => {
         try {
-            fetch(`http://localhost:8080/api/thread/${newThreadId}`, {
+            fetch(`https://backend-egh2.onrender.com/api/thread/${newThreadId}`, {
                 method: "DELETE",
             });
             const res = await response.json();
