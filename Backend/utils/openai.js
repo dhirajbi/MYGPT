@@ -1,5 +1,5 @@
 import 'dotenv/config';
-
+import fetch from "node-fetch";
 const getOpenAPIResponse = async (message) => {
   const options = {
     method: 'POST',
@@ -8,7 +8,7 @@ const getOpenAPIResponse = async (message) => {
       'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
     },
     body: JSON.stringify({
-      model: 'gpt-4o-mini',
+      model: 'gpt-4o',
       messages: [{
         role: 'user',
         content: message || 'Hello'
