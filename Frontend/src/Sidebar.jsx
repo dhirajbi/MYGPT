@@ -63,7 +63,7 @@ function Sidebar() {
 
     const deleteThread = async (threadId) => {
         try {
-            fetch(`https://backend-egh2.onrender.com/api/thread/${threadId}`, {
+            const response = await fetch(`https://backend-egh2.onrender.com/api/thread/${threadId}`, {
                 method: "DELETE",
             });
             const res = await response.json();
